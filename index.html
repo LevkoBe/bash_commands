@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linux Command Reference</title>
+</head>
+<body>
+
+<h1>Linux Command Reference</h1>
+
+<h2>1. File and Directory Operations</h2>
+
+<table>
+  <tr>
+    <th>Command</th>
+    <th>Description</th>
+    <th>Examples</th>
+  </tr>
+  <tr>
+    <td>ls</td>
+    <td>List files and directories.</td>
+    <td>ls -l, ls -a, ls -lh</td>
+  </tr>
+  <tr>
+    <td>cd</td>
+    <td>Change directory.</td>
+    <td>cd /path/to/directory</td>
+  </tr>
+  <tr>
+    <td>pwd</td>
+    <td>Print current working directory.</td>
+    <td>pwd</td>
+  </tr>
+  <tr>
+    <td>mkdir</td>
+    <td>Create a new directory.</td>
+    <td>mkdir my_directory</td>
+  </tr>
+  <tr>
+    <td>rm</td>
+    <td>Remove files and directories.</td>
+    <td>rm file.txt, rm -r my_directory, rm -f file.txt</td>
+  </tr>
+  <tr>
+    <td>cp</td>
+    <td>Copy files and directories.</td>
+    <td>cp -r directory destination, cp file.txt destination</td>
+  </tr>
+  <tr>
+    <td>mv</td>
+    <td>Move/rename files and directories.</td>
+    <td>mv file.txt new_name.txt, mv file.txt directory</td>
+  </tr>
+  <tr>
+    <td>touch</td>
+    <td>Create an empty file or update timestamps.</td>
+    <td>touch file.txt</td>
+  </tr>
+  <tr>
+    <td>cat</td>
+    <td>View the contents of a file.</td>
+    <td>cat file.txt</td>
+  </tr>
+  <tr>
+    <td>head</td>
+    <td>Display the first few lines of a file.</td>
+    <td>head file.txt, head -n 5 file.txt</td>
+  </tr>
+  <tr>
+    <td>tail</td>
+    <td>Display the last few lines of a file.</td>
+    <td>tail file.txt, tail -n 5 file.txt</td>
+  </tr>
+</table>
+
+<h2>2. File Permission Commands</h2>
+
+<table>
+  <tr>
+    <th>Command</th>
+    <th>Description</th>
+    <th>Examples</th>
+  </tr>
+  <tr>
+    <td>chmod</td>
+    <td>Change file permissions.</td>
+    <td>chmod u+rwx file.txt</td>
+  </tr>
+  <tr>
+    <td>chown</td>
+    <td>Change file ownership.</td>
+    <td>chown user file.txt</td>
+  </tr>
+  <tr>
+    <td>chgrp</td>
+    <td>Change group ownership.</td>
+    <td>chgrp group file.txt</td>
+  </tr>
+  <tr>
+    <td>umask</td>
+    <td>Set default file permissions.</td>
+    <td>umask 022</td>
+  </tr>
+</table>
+
+<h2>3. File Compression and Archiving Commands</h2>
+
+<table>
+  <tr>
+    <th>Command</th>
+    <th>Description</th>
+    <th>Examples</th>
+  </tr>
+  <tr>
+    <td>tar</td>
+    <td>Create or extract archive files.</td>
+    <td>tar -czvf archive.tar.gz files/</td>
+  </tr>
+  <tr>
+    <td>gzip</td>
+    <td>Compress files.</td>
+    <td>gzip file.txt</td>
+  </tr>
+  <tr>
+    <td>zip</td>
+    <td>Create compressed zip archives.</td>
+    <td>zip archive.zip file1.txt file2.txt</td>
+  </tr>
+</table>
+
+<h2>4. Process Management Commands</h2>
+
+<table>
+  <tr>
+    <th>Command</th>
+    <th>Description</th>
+    <th>Examples</th>
+  </tr>
+  <tr>
+    <td>ps</td>
+    <td>Display running processes.</td>
+    <td>ps aux</td>
+  </tr>
+  <tr>
+    <td>top</td>
+    <td>Monitor system processes in real-time.</td>
+    <td>top</td>
+  </tr>
+  <tr>
+    <td>kill</td>
+    <td>Terminate a process.</td>
+    <td>kill PID</td>
+  </tr>
+  <tr>
+    <td>pkill</td>
+    <td>Terminate processes based on their name.</td>
+    <td>pkill process_name</td>
+  </tr>
+</table>
+
+<h2>5. System Information Commands</h2>
+
+<table>
+  <tr>
+    <th>Command</th>
+    <th>Description</th>
+    <th>Examples</th>
+  </tr>
+  <tr>
+    <td>uname</td>
+    <td>Print system information.</td>
+    <td>uname -a</td>
+  </tr>
+  <tr>
+    <td>whoami</td>
+    <td>Display current username.</td>
+    <td>whoami</td>
+  </tr>
+  <tr>
+    <td>df</td>
+    <td>Show disk space usage.</td>
+    <td>df -h</td>
+  </tr>
+  <tr>
+    <td>du</td>
+    <td>Estimate file and directory sizes.</td>
+    <td>du -sh directory/</td>
+  </tr>
+</table>
+
+<h2>6. Networking Commands</h2>
+
+<table>
+  <tr>
+    <th>Command</th>
+    <th>Description</th>
+    <th>Examples</th>
+  </tr>
+  <tr>
+    <td>ifconfig</td>
+    <td>Display network interface information.</td>
+    <td>ifconfig</td>
+  </tr>
+  <tr>
+    <td>ping</td>
+    <td>Send ICMP echo requests to a host.</td>
+    <td>ping google.com</td>
+  </tr>
+  <tr>
+    <td>netstat</td>
+    <td>Display network connections and statistics.</td>
+    <td>netstat -tuln</td>
+  </tr>
+  <tr>
+    <td>ssh</td>
+    <td>Securely connect to a remote server.</td>
+    <td>ssh user@hostname</td>
+  </tr>
+</table>
+
+<h2>7. IO Redirection Commands</h2>
+
+<table>
+  <tr>
+    <th>Command</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>cmd < file</td>
+    <td>Input of cmd is taken from file.</td>
+  </tr>
+  <tr>
+    <td>cmd > file</td>
+    <td>Standard output (stdout) of cmd is redirected to file.</td>
+  </tr>
+  <tr>
+    <td>cmd 2> file</td>
+    <td>Error output (stderr) of cmd is redirected to file.</td>
+  </tr>
+  <tr>
+    <td>cmd 2>&1</td>
+    <td>stderr is redirected to the same place as stdout.</td>
+  </tr>
+</table>
+
+<h2>8. Environment Variable Commands</h2>
+
+<table>
+  <tr>
+    <th>Command</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>export VARIABLE_NAME=value</td>
+    <td>Sets the value of an environment variable.</td>
+  </tr>
+  <tr>
+    <td>echo $VARIABLE_NAME</td>
+    <td>Displays the value of a specific environment variable.</td>
+  </tr>
+  <tr>
+    <td>env</td>
+    <td>Lists all environment variables currently set in the system.</td>
+  </tr>
+  <tr>
+    <td>unset VARIABLE_NAME</td>
+    <td>Unsets or removes an environment variable.</td>
+  </tr>
+</table>
+
+<h2>9. User Management Commands</h2>
+
+<table>
+  <tr>
+    <th>Command</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>who</td>
+    <td>Show who is currently logged in.</td>
+  </tr>
+  <tr>
+    <td>sudo adduser username</td>
+    <td>Create a new user account on the system with the specified username.</td>
+  </tr>
+  <tr>
+    <td>finger</td>
+    <td>Display information about all the users currently logged into the system.</td>
+  </tr>
+  <tr>
+    <td>sudo deluser USER GROUPNAME</td>
+    <td>Remove the specified user from the specified group.</td>
+  </tr>
+</table>
+
+<h2>10. Shortcuts Commands</h2>
+
+<table>
+  <tr>
+    <th>Navigation</th>
+    <th>Description</th>
+    <th>Editing</th>
+    <th>Description</th>
+    <th>History</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>Ctrl + A</td>
+    <td>Move to the beginning of the line.</td>
+    <td>Ctrl + U</td>
+    <td>Cut/delete from the cursor position to the beginning of the line.</td>
+    <td>Ctrl + R</td>
+    <td>Search command history (reverse search).</td>
+  </tr>
+  <tr>
+    <td>Ctrl + E</td>
+    <td>Move to the end of the line.</td>
+    <td>Ctrl + K</td>
+    <td>Cut/delete from the cursor position to the end of the line.</td>
+    <td>Ctrl + G</td>
+    <td>Escape from history search mode.</td>
+  </tr>
+  <tr>
+    <td>Ctrl + B</td>
+    <td>Move back one character.</td>
+    <td>Ctrl + W</td>
+    <td>Cut/delete the word before the cursor.</td>
+    <td>Ctrl + P</td>
+    <td>Go to the previous command in history.</td>
+  </tr>
+  <tr>
+    <td>Ctrl + F</td>
+    <td>Move forward one character.</td>
+    <td>Ctrl + Y</td>
+    <td>Paste the last cut text.</td>
+    <td>Ctrl + N</td>
+    <td>Go to the next command in history.</td>
+  </tr>
+  <tr>
+    <td>Alt + B</td>
+    <td>Move back one word</td>
+    <td>Ctrl + L</td>
+    <td>Clear the screen.</td>
+    <td>Ctrl + C</td>
+    <td>Terminate the current command.</td>
+  </tr>
+  <tr>
+    <td>Alt + F</td>
+    <td>Move forward one word.</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+
+</body>
+</html>
