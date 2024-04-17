@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linux Command Reference</title>
+</head>
+<body>
+
+<pre>
+    **File and Directory Operations Commands**
+
+- **ls**: `ls -l` - Displays files and directories with detailed information.
+- **cd**: `cd /path/to/directory` - Changes the current directory to the specified path.
+- **pwd**: `pwd` - Displays the current working directory.
+- **mkdir**: `mkdir my_directory` - Creates a new directory named "my_directory".
+- **rm**: `rm file.txt` - Deletes the file named "file.txt".
+- **cp**: `cp file.txt destination` - Copies the file "file.txt" to the specified destination.
+- **mv**: `mv file.txt new_name.txt` - Renames the file "file.txt" to "new_name.txt".
+- **touch**: `touch file.txt` - Creates an empty file named "file.txt".
+- **cat**: `cat file.txt` - Displays the contents of the file "file.txt".
+- **head**: `head file.txt` - Shows the first few lines of the file "file.txt".
+- **tail**: `tail file.txt` - Shows the last few lines of the file "file.txt".
+- **ln**: `ln -s source_file link_name` - Creates a symbolic link named "link_name" pointing to "source_file".
+- **find**: `find /path/to/search -name "*.txt"` - Searches for all files with the extension ".txt" in the specified directory.
+- **scp**: `scp file.txt user@hostname:/path/to/destination` - Securely copies "file.txt" to the specified remote host.
+- **wget**: `wget <http://example.com/file.txt`> - Downloads "file.txt" from the specified URL.
+
+**File Permission Commands**
+
+- **chmod**: `chmod u+rwx file.txt` - Grants read, write, and execute permissions to the owner of the file.
+- **chown**: `chown user file.txt` - Changes the owner of "file.txt" to the specified user.
+- **chgrp**: `chgrp group file.txt` - Changes the group ownership of "file.txt" to the specified group.
+- **umask**: `umask 022` - Sets the default file permissions to read and write for the owner, and read-only for group and others.
+
+**File Compression and Archiving Commands**
+
+- **tar**: `tar -czvf archive.tar.gz files/` - Creates a compressed tar archive named "archive.tar.gz" containing the files in the "files/" directory.
+- **gzip**: `gzip file.txt` - Compresses the file "file.txt" and renames it as "file.txt.gz".
+- **zip**: `zip archive.zip file1.txt file2.txt` - Creates a zip archive named "archive.zip" containing "file1.txt" and "file2.txt".
+
+**Process Management Commands**
+
+- **ps**: `ps aux` - Shows all running processes with detailed information.
+- **top**: `top` - Displays a dynamic view of system processes and their resource usage.
+- **kill**: `kill PID` - Terminates the process with the specified process ID.
+- **pkill**: `pkill process_name` - Terminates all processes with the specified name.
+- **pgrep**: `pgrep process_name` - Lists all processes with the specified name.
+- **grep**: `grep -i "hello" file.txt` - Searches for "hello" in "file.txt" ignoring case distinctions.
+
+**System Information Commands**
+
+- **uname**: `uname -a` - Displays all system information.
+- **whoami**: `whoami` - Shows the current username.
+- **df**: `df -h` - Displays disk space usage in a human-readable format.
+- **du**: `du -sh directory/` - Provides the total size of the specified directory.
+- **free**: `free -h` - Displays memory usage in a human-readable format.
+- **uptime**: `uptime` - Shows the current system uptime.
+- **lscpu**: `lscpu` - Provides detailed CPU information.
+- **lspci**: `lspci` - Lists PCI devices.
+- **lsusb**: `lsusb` - Lists all connected USB devices.
+
+**Networking Commands**
+
+- **ifconfig**: `ifconfig` - Shows the details of all network interfaces.
+- **ping**: `ping google.com` - Sends ICMP echo requests to "[google.com](http://google.com/)" to check connectivity.
+- **netstat**: `netstat -tuln` - Shows all listening TCP and UDP connections.
+- **ss**: `ss -tuln` - Shows all listening TCP and UDP connections.
+- **ssh**: `ssh user@hostname` - Initiates an SSH connection to the specified hostname.
+- **scp**: `scp file.txt user@hostname:/path/to/destination` - Securely copies "file.txt" to the specified remote host.
+- **wget**: `wget <http://example.com/file.txt`> - Downloads "file.txt" from the specified URL.
+- **curl**: `curl <http://example.com`> - Retrieves the content of a webpage from the specified URL.
+- **nmap**: `nmap -sP 192.168.1.0/24` - Performs a ping scan of the specified IP range to discover live hosts.
+
+**IO Redirection Commands**
+
+- `< file`: Input of a command is taken from a file.
+- `> file`: Standard output of a command is redirected to a file.
+- `2> file`: Error output of a command is redirected to a file.
+- `2>&1`: Redirects stderr to the same place as stdout.
+- `<(cmd)`: Output of a command is used as input for another command.
+- `> /dev/null`: Discards the output of a command.
+- `&> file`: Redirects all output of a command to a file.
+- `1>&2`: Redirects stdout to the same place as stderr.
+- `>> file`: Appends output to a file.
+
+**SSH Key Management Commands**
+
+- **ssh-keygen**: `ssh-keygen` - Generates SSH key pairs for authentication.
+- **ssh-copy-id**: `ssh-copy-id username@hostname` - Copies your SSH public key to a user account for passwordless SSH login.
+- **cat**: `cat ~/.ssh/id_rsa.pub` - Displays the contents of your SSH public key.
+
+head -5 test.txt | \
+awk '($2==0) ? $4="NaN" : $4=$1/$2' | \
+awk '{print $1" / "$2" = "$4}' | \
+awk '{t=$1;$1=$5;$5=t;print}' | \
+sort -nr | \
+awk 'BEGIN {print "Sorted Descending"} {t=$1;$1=$5;$5=t;print} \
+     NR==1 {max=$1; min=$1} {sum+=$1} {if ($1<min) min=$1} END {print "Max: " max "\nMin: " min "\nAverage: " sum/NR}' | \
+awk '$1=="NaN" {$1=sprintf("\033[1;31m%s\033[0m", $1)} 1' | \
+column -t
+
+#Display permissions. -rwxr-xr--, in order of owner, group, others.
+ls -l
+
+#Symbolic links. Link from folder A to folder B.
+ln -s target_path link_name
+ln -s /path/to/folderB /path/to/folderA/link_name
+
+**wc**
+
+wc -l filename - counts number of lines in file
+wc -c file.txt - count bytes
+wc -w file.txt - count words
+wc -m file.txt - count characters
+wc -L file.txt - count max line length
+wc -lwm file.txt - combination
+
+
+**sed**
+sed -e 's/foo/bar/g' -e 's/baz/qux/g' file.txt  # Applies multiple substitutions.
+
+#--follow-symlinks: If the file being processed is a symbolic link, follow the link and edit the target file instead.
+sed --follow-symlinks -i 's/old/new/g' link.txt
+
+
+sed '/pattern/i "Text before match"' file.txt  # Inserts text before lines containing 'pattern'.
+sed '/pattern/a "Text after match"' file.txt   # Appends text after lines containing 'pattern'.
+
+sed '3s/foo/bar/' file.txt  # Replace 'foo' with 'bar' only on the 3rd line.
+sed '1,5s/foo/bar/' file.txt  # Replace 'foo' with 'bar' from lines 1 to 5.
+sed '/start/,/end/s/foo/bar/' file.txt  # Replace 'foo' with 'bar' between lines containing 'start' and 'end'.
+
+sed '3d' file.txt  # Deletes the third line.
+sed '1,5d' file.txt  # Deletes lines 1 to 5.
+sed '/pattern/d' file.txt  # Deletes all lines that match the pattern.
+
+sed '3d' file.txt  # Deletes the third line.
+sed '1,5d' file.txt  # Deletes lines 1 to 5.
+sed '/pattern/d' file.txt  # Deletes all lines that match the pattern.
+
+sed -n '/pattern/=' file.txt  # Prints the line numbers where 'pattern' is found.
+
+sed '/pattern/{s/foo/bar/; s/baz/qux/}' file.txt  # Applies multiple substitutions to lines containing 'pattern'.
+</pre>
+
+</body>
+</html>
